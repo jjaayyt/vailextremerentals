@@ -1,0 +1,227 @@
+﻿@model MVCEmail.Models.ReservationFormModel
+@{
+    ViewBag.Title = "Snowmobile & Scooter Rental Vail CO | Vail Extreme Rentals";
+    ViewBag.MetaDescription = "Vail Extreme Rentals offer snowmobile, scooter, dirt bike rentals and more! Click to reserve your choice of model today!";
+    ViewBag.MetaKeywords = "";
+    ViewBag.CanonicalURL = "https://www.vailextremerentals.com";
+}
+<link href="~/css/sky-forms.css" rel="stylesheet" />
+<link href="~/css/custom-sky-forms.css" rel="stylesheet" />
+<!--[if lt IE 9]><link rel="stylesheet" href="~/css/sky-forms-ie8.css"><![endif]-->
+<link href="~/css/page_contact.css" rel="stylesheet" />
+
+<div class="container content">
+    <div class="row margin-bottom-0">
+        <div class="col-md-12 mb-margin-bottom-0">
+            <div class="headline"><h1>Rental Reservations</h1></div>
+            <p>If you would like to book a reservation within 48 hours, please call us at (970) 470-2166.</p><br />
+        </div>
+    </div>
+    <div class="row margin-bottom-30 sky-form">
+
+        <!-- Order Form -->
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <header>RESERVATION</header>
+            <fieldset>
+                <div class="row">
+                    <section class="col col-4">
+                        <label class="input">
+                            <i class="icon-append fa fa-user"></i>
+                            @Html.TextBoxFor(m => m.FromName, new { @class = "form-control", placeholder = "CUSTOMER NAME", name = "name" })
+                            @Html.ValidationMessageFor(m => m.FromName)
+                        </label>
+                    </section>
+
+                    <section class="col col-4">
+                        <label class="input">
+                            <i class="icon-append fa fa-envelope"></i>
+                            @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control", placeholder = "E-MAIL", name = "email" })
+                            @Html.ValidationMessageFor(m => m.FromEmail)
+                        </label>
+                    </section>
+                    <section class="col col-4">
+                        <label class="input">
+                            <i class="icon-append fa fa-phone"></i>
+                            @Html.TextBoxFor(m => m.FromTelephoneNumber, new { @class = "form-control", placeholder = "PHONE", name = "phone" })
+                            @Html.ValidationMessageFor(m => m.FromTelephoneNumber)
+                        </label>
+                    </section>
+                </div>
+                <div class="row">
+                    <section class="col col-4">
+                        <label class="select">
+                            @Html.DropDownListFor(m => m.SelectedRental, new SelectList(new List<Object>{
+                            new { value = 1 , text = "TIMBERSLED KAWASAKI KX450F SHORT" },
+                            new { value = 2 , text = "TIMBERSLED YAMAHA WR450F LONG"},
+                            new { value = 3 , text = "TIMBERSLED YAMAHA WR450F SHORT TRACK" },
+                            new { value = 4 , text = "TIMBERSLED KTM 300XC SX 120 SNOCROSS" },
+                            new { value = 5 , text = "SNOWMOBILE SKI-DOO 850 154" },
+                            new { value = 6 , text = "DIRTBIKE KAWASAKI KX450F" },
+                            new { value = 7 , text = "DIRTBIKE YAMAHA WR450F" },
+                            new { value = 8 , text = "DIRTBIKE KTM 300 XC" },
+                            new { value = 9 , text = "DIRTBIKE KAWASAKI KX250F" },
+                            new { value = 10 , text = "DIRTBIKE HONDA XR100" },
+                            new { value = 11 , text = "DIRTBIKE HONDA CRF150F" },
+                            new { value = 12 , text = "DIRTBIKE HONDA XR50" },
+                            new { value = 13 , text = "RZR SIDE-BY-SIDE POLARIS 4-SEATER" },
+                            new { value = 14 , text = "RZR SIDE-BY-SIDE POLARIS 2-SEATER" },
+                            new { value = 15 , text = "MOTORCYCLE HARLEY STREET GLIDE" },
+                            new { value = 16 , text = "MOTORCYCLE HONDA RUCKUS 50CC" },
+                            new { value = 17 , text = "JEEP 5-SEATER" },
+                            new { value = 18 , text = "ROCK CRAWLER" },
+                            new { value = 19 , text = "4x4 CHEVY CREW CAB DIESEL" },
+                            new { value = 20 , text = "GPS TRACKER DTS TRANSECEIVER" },
+                            new { value = 21 , text = "GPS TRACKER SPOT GEN3" },
+                            new { value = 22 , text = "VIDEO CAMERA GOPRO HERO" },
+                            }, "value", "text"), "RESERVE THIS MODEL", new { name = "interested", @class = "interested" })
+                            <i></i>
+                        </label>
+                    </section>
+                    <section class="col col-4">
+                        <label class="input">
+                            <i class="icon-append fa fa-calendar"></i>
+                            @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control", placeholder = "PICKUP DATE", name = "start", id = "start" })
+                            @Html.ValidationMessageFor(m => m.StartDate)
+                        </label>
+                    </section>
+                    <section class="col col-4">
+                        <label class="input">
+                            <i class="icon-append fa fa-calendar"></i>
+                            @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control", placeholder = "RETURN DATE", name = "finish", id = "finish" })
+                            @Html.ValidationMessageFor(m => m.EndDate)
+                        </label>
+                    </section>
+                </div>
+                <div class="row">
+                    <section class="col-lg-12">
+                        <label class="textarea">
+                            @Html.TextAreaFor(m => m.SpecialRequest, new { @class = "form-control", placeholder = "SPECIAL REQUEST(S)", name = "specialrequest", id = "specialrequest" })
+                            @Html.ValidationMessageFor(m => m.SpecialRequest)
+                        </label>
+                    </section>
+                </div>
+            </fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <header>BILLING</header>
+            <fieldset>
+                <div class="inline-group">
+                    <section class="col col-11">
+
+                        <label class="radio">@Html.RadioButtonFor(m => m.CCType, "VISA", new { @Name = "@(radio-inline)" }) <i class="rounded-x"></i>VISA</label>
+                        <label class="radio">@Html.RadioButtonFor(m => m.CCType, "MASTERCARD", new { @Name = "@(radio-inline)" }) <i class="rounded-x"></i>MASTERCARD</label>
+                        <label class="radio">@Html.RadioButtonFor(m => m.CCType, "AMERICAN EXPRESS", new { @Name = "@(radio-inline)" }) <i class="rounded-x"></i>AMERICAN EXPRESS</label>
+
+
+
+
+                    </section>
+                </div>
+                <div class="row">
+                    <section class="col col-4">
+                        <label class="input">
+                            @Html.TextBoxFor(m => m.CreditCardNumber, new { @class = "form-control", placeholder = "CARD NUMBER", @maxlength = "16", name = "card", id = "card" })
+                            @Html.ValidationMessageFor(m => m.CreditCardNumber)
+                        </label>
+                    </section>
+                    <section class="col col-4">
+                        <label class="input">
+                            @Html.TextBoxFor(m => m.CVV2Number, new { @class = "form-control", placeholder = "CCV2", @maxlength = "4", name = "cvv", id = "cvv" })
+                            @Html.ValidationMessageFor(m => m.CVV2Number)
+                        </label>
+                    </section>
+                </div>
+                <div class="row">
+                    <section class="col col-8">
+                        <label class="input">
+                            @Html.TextBoxFor(m => m.NameOnCreditCard, new { @class = "form-control", placeholder = "NAME ON CARD", name = "name", id = "name" })
+                            @Html.ValidationMessageFor(m => m.NameOnCreditCard)
+                        </label>
+                    </section>
+                </div>
+                <div class="row">
+                    <section class="col col-4">
+                        <label class="select">
+                            @Html.DropDownListFor(m => m.ExpirationMonth, new SelectList(new List<Object>{
+                                new { value = 1 , text = "JAN" },
+                              new { value = 2 , text = "FEB" },
+                              new { value = 3 , text = "MAR" },
+                              new { value = 4 , text = "APR" },
+                              new { value = 5 , text = "MAY" },
+                              new { value = 6 , text = "JUN" },
+                              new { value = 7 , text = "JUL" },
+                              new { value = 8 , text = "AUG" },
+                              new { value = 9 , text = "SEP" },
+                              new { value = 10 , text = "OCT" },
+                              new { value = 11 , text = "NOV" },
+                              new { value = 12 , text = "DEC" },
+                                }, "value", "text"), "MONTH EXPIRES", new { name = "month", @class = "select" })
+                            <i></i>
+                        </label>
+                    </section>
+                    <section class="col col-4">
+                        <label class="input">
+                            @Html.TextBoxFor(m => m.ExpirationYear, new { @class = "form-control", placeholder = "YEAR EXPIRES", name = "year", id = "year" })
+                            @Html.ValidationMessageFor(m => m.ExpirationYear)
+                        </label>
+                    </section>
+                </div>
+            </fieldset>
+            @*<header>RENTAL AGREEMENT &amp; RELEASE OF LIABILITY</header>
+                            <fieldset>
+                                <div class="row">
+                                    <section class="col col-lg-12">
+                                        <label class="textarea">
+                                            <textarea class="form-control" id="ReleaseText" name="ReleaseText" rows="6">
+                RENTAL AGREEMENT. I am renting from Vail Extreme Rentals a Snow Bike (the “Snow Bike”) for the purpose of recreational power snow biking.  I understand there are NO REFUNDS ON A SNOW BIKE RENTAL.  I understand I will be responsible for the proper care of the Snow Bike until it is returned to Vail Extreme Rentals.  I understand that I will be responsible if the Snow Bike is lost, stolen, misused or misplaced, and I agree to replace at full retail value, the Snow Bike rented from Vail Extreme Rentals if it is damaged or not returned to Vail Extreme Rentals when due.  I authorize Vail Extreme Rentals to charge my credit card to pay any and all amounts due hereunder.
+
+                RELEASE OF LIABILITY. I understand that snow biking is a dangerous activity.  I understand that snow biking includes inherent, manmade and other risks of injury or death that reasonable care, caution, instruction and expertise cannot eliminate. I also understand that injuries are common and ordinary occurrences during snow biking activities. I hereby freely, voluntarily and expressly agree to ASSUME and ACCEPT any and ALL RISKS of death or any injury to any part of my body and to any other person or damage to property while using the Snow Bike.
+
+                    I have been advised to and agree to use safety equipment, such as a helmet, goggles, protective padding and such other safety equipment as is prudent under the circumstances. However, I understand that use of such safety equipment does NOT ELIMINATE THE RISK of injury or death.
+
+                    I hereby forever release, indemnify and hold harmless Vail Extreme Rentals from and against any and all cause or causes of action, whether caused by ANY NEGLIGENCE or breach of warranty, whether sounding in contract or tort, in law or in equity, including suits, liabilities, claims, demands, damages, losses, costs, and expenses, of any nature whatsoever, based upon, arising from, or in any way connected with or related to my use of the Snow Bike.  I agree NOT to make a claim against or sue Vail Extreme Rentals for any injuries or damages relating to my use of the Snow Bike and I ACCEPT PERSONAL LIABILITY AND RESPONSIBILITY for any and all such injuries or damages.
+
+                    Vail Extreme Rentals provides NO WARRANTIES, express or implied, and the Snow Bike is accepted “AS IS.”  I have carefully read this agreement and release of liability and fully understand its contents.  I am aware that this is a binding contract.  I agree that if any provision of this agreement and release of liability is determined to be illegal or unenforceable for any reason, the illegal or unenforceable provision shall be severed and the remainder of this contract shall be given full force and effect.
+
+                    If I am signing on behalf of a minor, I represent that I am a parent, guardian, legal representative or a person who has legal custody of said minor, and I understand I am RELEASING AND WAIVING both my claims for negligence and the minor’s prospective claims for negligence and breach of warranty.
+                                            </textarea>
+
+                                        </label><br />
+
+                                        <div class="inline-group">
+                                            <label class="checkbox">
+                                                @Html.CheckBoxFor(m => m.Release, new {type = "checkbox", name = "checkbox-inline", id = "checkbox-inline" })
+                                                <i></i><b>I UNDERSTAND THAT ALL CUSTOMERS WILL BE REQUIRED TO SIGN VAIL EXTREME RENTALS' SNOW BIKE RENTAL AGREEMENT &AMP; RELEASE OF LIABILITY.</b>
+                                            </label>
+                                        </div>
+                                    </section>
+                                </div>
+                            </fieldset>*@
+            <header></header>
+            <fieldset>
+                <div class="row">
+                    <section class="col col-4">
+                        <button type="submit" class="btn-u btn-brd-hover rounded btn-u-lg">
+                            <i class="fa fa-calendar-check-o"></i>&nbsp;&nbsp;Submit
+                        </button>
+                    </section>
+                </div>
+            </fieldset>
+
+        }
+    </div>
+</div>
+<!-- End Checkout-Form -->

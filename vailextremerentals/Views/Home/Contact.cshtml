@@ -1,0 +1,100 @@
+﻿@model MVCEmail.Models.EmailFormModel
+@{
+    ViewBag.Title = "Snow Bike Rentals & RZRs For Rent Vail CO | Vail Extreme Rentals";
+    ViewBag.MetaDescription = "Vail Extreme Rentals is your one stop shop for dirt bikes, side-by-sides, RZRs, Jeeps, motorcycles, snowmobiles, rock crawlers and more! Click to contact us or reserve your rental today!";
+    ViewBag.MetaKeywords = "";
+    ViewBag.CanonicalURL = "https://www.vailextremerentals.com";
+}
+<link href="~/css/sky-forms.css" rel="stylesheet" />
+<link href="~/css/custom-sky-forms.css" rel="stylesheet" />
+<!--[if lt IE 9]><link rel="stylesheet" href="~/css/sky-forms-ie8.css"><![endif]-->
+<link href="~/css/page_contact.css" rel="stylesheet" />
+
+
+<div class="container content">
+
+    <div class="col-md-12 mb-margin-bottom-0">
+        <div class="headline"><h1>Contact Us</h1></div>
+        <p>We love hearing from customers. Please send us a message using the form below or call us at (970) 470-2166.</p><br />
+    </div>
+
+    <div class="container content">
+        <div class="row margin-bottom-30">
+            <div class="col-md-9 mb-margin-bottom-30">
+                <div class="row margin-bottom-60 sky-form">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <fieldset>
+                            <div class="row">
+                                <section class="col col-4">
+                                    <label class="input">
+                                        <i class="icon-append fa fa-user"></i>
+                                        @Html.TextBoxFor(m => m.FromName, new { @class = "form-control", placeholder = "CUSTOMER NAME", name = "name" })
+                                        @Html.ValidationMessageFor(m => m.FromName)
+                                    </label>
+                                </section>
+
+                                <section class="col col-4">
+                                    <label class="input">
+                                        <i class="icon-append fa fa-envelope"></i>
+                                        @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control", placeholder = "E-MAIL", name = "email" })
+                                        @Html.ValidationMessageFor(m => m.FromEmail)
+                                    </label>
+                                </section>
+                                <section class="col col-4">
+                                    <label class="input">
+                                        <i class="icon-append fa fa-phone"></i>
+                                        @Html.TextBoxFor(m => m.FromTelephoneNumber, new { @class = "form-control", placeholder = "PHONE", name = "phone" })
+                                        @Html.ValidationMessageFor(m => m.FromTelephoneNumber)
+                                    </label>
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="col-lg-12">
+                                    <label class="textarea">
+                                        @Html.TextAreaFor(m => m.Message, new { @class = "form-control", placeholder = "MESSAGE", name = "message", Rows = "10", id = "message" })
+                                        @Html.ValidationMessageFor(m => m.Message)
+                                    </label>
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="col">
+                                    <button type="submit" class="btn-u btn-brd-hover rounded btn-u-lg">
+                                        <i class="fa fa-envelope-o"></i>&nbsp;&nbsp;Send
+                                    </button>
+                                </section>
+                            </div>
+                        </fieldset>
+                    }
+                </div>
+            </div>
+            <div class="col-md-3">
+
+
+                <!-- Contacts -->
+                <div class="headline"><h2>Contacts</h2></div>
+                <ul class="list-unstyled who margin-bottom-30">
+                    <li><a href="#"><i class="fa fa-home"></i>2095 Zermatt Lane, Unit A, Vail, Colorado 81657</a></li>
+                    <li><a href="#"><i class="fa fa-envelope"></i>vailextremerentals@gmail.com</a></li>
+                    <li><a href="#"><i class="fa fa-phone"></i>(1) 970 470-2166</a></li>
+                    <li><a href="#"><i class="fa fa-globe"></i>http://www.vailextremerentals.com</a></li>
+                </ul>
+                <!-- Business Hours -->
+                <div class="headline"><h2>Business Hours</h2></div>
+                <ul class="list-unstyled margin-bottom-30">
+                    <li><strong>We're always open. Everyday. 24/7.</strong></li>
+                </ul>
+                <!-- Why we are? -->
+                <div class="headline"><h2>Why we are?</h2></div>
+                <p>We turned our passion for outdoor winter snowsports into a business, so you could have the awesome fun we've been having for years!</p>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-check color-green"></i> The fastest bikes!</li>
+                    <li><i class="fa fa-check color-green"></i> The best snow on earth!</li>
+                    <li><i class="fa fa-check color-green"></i> More fun than you've ever had!</li>
+                </ul>
+
+            </div><!--/col-md-3-->
+        </div><!--/row-->
+    </div>
+</div>
