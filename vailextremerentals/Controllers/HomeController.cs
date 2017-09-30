@@ -80,9 +80,11 @@ namespace vailextremerentals.Controllers
 
                 using (var smtp = new SmtpClient())
                 {
-                    var credential = new NetworkCredential();
-                    credential.UserName = "vailextremerentals@gmail.com";
-                    credential.Password = "Ui816577";
+                    var credential = new NetworkCredential
+                    {
+                        UserName = "vailextremerentals@gmail.com",
+                        Password = "Ui816577"
+                    };
                     smtp.Credentials = credential;
                     smtp.Host = "smtp.gmail.com";
                     smtp.Port = 587;
@@ -111,15 +113,15 @@ namespace vailextremerentals.Controllers
 
                 var SpecialRequest = model.SpecialRequest.ToUpper().Trim();
 
-                var CreditCardType = model.CCType.ToUpper().Trim();
+                //var CreditCardType = model.CCType.ToUpper().Trim();
 
-                var CreditCardNumber = model.CreditCardNumber.ToUpper().Trim();
-                var CVV2Number = model.CVV2Number.ToUpper().Trim();
+                //var CreditCardNumber = model.CreditCardNumber.ToUpper().Trim();
+                //var CVV2Number = model.CVV2Number.ToUpper().Trim();
 
-                var NameOnCreditCard = model.NameOnCreditCard.ToUpper().Trim();
+                //var NameOnCreditCard = model.NameOnCreditCard.ToUpper().Trim();
 
-                var ExpirationMonth = model.ExpirationMonth.ToUpper().Trim();
-                var ExpirationYear = model.ExpirationYear.ToUpper().Trim();
+                //var ExpirationMonth = model.ExpirationMonth.ToUpper().Trim();
+                //var ExpirationYear = model.ExpirationYear.ToUpper().Trim();
 
                 System.Random rndmnmbr = new System.Random();
                 int result = rndmnmbr.Next(11111, 99999);
@@ -128,17 +130,16 @@ namespace vailextremerentals.Controllers
                 message.To.Add(new MailAddress("vailextremerentals@gmail.com"));
                 message.From = new MailAddress(model.FromEmail.Trim());
                 message.Subject = "NEW RESERVATION REQUEST #".ToUpper() + confirmationnumber + ". " + model.FromName.Trim().ToUpper();
-                message.Body = string.Format("<table cellpadding=10 cellspacing=0 border=0> <tr width=175> <td style=text-align:right;vertical-align:top;font-weight:bold>CUSTOMER</td><td>" + FromName + "</td></tr><tr> <td style=text-align:right;vertical-align:top;font-weight:bold>E-MAIL</td><td>" + FromEmail + "</td></tr><tr> <td style=text-align:right;vertical-align:top;font-weight:bold>TELEPHONE</td><td>" + FromTelephoneNumber + "</td></tr><tr> <td style=text-align:right;vertical-align:top;font-weight:bold>RESERVED MODEL</td><td>" + RentalSelected + "</td></tr><tr> <td style=text-align:right;vertical-align:top;font-weight:bold>EXPECTED START DATE</td><td>" + StartDate + "</td></tr><tr> <td style=text-align:right;vertical-align:top;font-weight:bold>EXPECTED END DATE</td><td>" + EndDate + "</td></tr><tr> <td style=text-align:right;vertical-align:top;font-weight:bold>SPECIAL REQUEST(S)</td><td>" + SpecialRequest + "</td></tr><tr> <td style=text-align:right;vertical-align:top;font-weight:bold>CARD TYPE</td><td>" + CreditCardType + "</td></tr><tr> <td style=text-align:right;vertical-align:top;font-weight:bold>CARD NUMBER</td><td>" + CreditCardNumber + "</td></tr><tr> <td style=text-align:right;vertical-align:top;font-weight:bold>CCV2 NUMBER</td><td>" + CVV2Number + "</td></tr><tr> <td style=text-align:right;vertical-align:top;font-weight:bold>NAME ON CARD</td><td>" + NameOnCreditCard + "</td></tr><tr> <td style=text-align:right;vertical-align:top;font-weight:bold>EXPIRATION MONTH</td><td>" + ExpirationMonth + "</td></tr><tr> <td style=text-align:right;vertical-align:top;font-weight:bold>EXPIRATION YEAR</td><td>" + ExpirationYear + "</td></tr></table>");
-
-
-
+                message.Body = string.Format("<table cellpadding=10 cellspacing=0 border=0> <tr width=175> <td style=text-align:right;vertical-align:top;font-weight:bold>CUSTOMER</td><td>" + FromName + "</td></tr><tr> <td style=text-align:right;vertical-align:top;font-weight:bold>E-MAIL</td><td>" + FromEmail + "</td></tr><tr> <td style=text-align:right;vertical-align:top;font-weight:bold>TELEPHONE</td><td>" + FromTelephoneNumber + "</td></tr><tr> <td style=text-align:right;vertical-align:top;font-weight:bold>RESERVED MODEL</td><td>" + RentalSelected + "</td></tr><tr> <td style=text-align:right;vertical-align:top;font-weight:bold>EXPECTED START DATE</td><td>" + StartDate + "</td></tr><tr> <td style=text-align:right;vertical-align:top;font-weight:bold>EXPECTED END DATE</td><td>" + EndDate + "</td></tr><tr> <td style=text-align:right;vertical-align:top;font-weight:bold>SPECIAL REQUEST(S)</td><td>" + SpecialRequest + "</td></tr></table>");
                 message.IsBodyHtml = true;
 
                 using (var smtp = new SmtpClient())
                 {
-                    var credential = new NetworkCredential();
-                    credential.UserName = "vailextremerentals@gmail.com";
-                    credential.Password = "Ui816577";
+                    var credential = new NetworkCredential
+                    {
+                        UserName = "vailextremerentals@gmail.com",
+                        Password = "Ui816577"
+                    };
                     smtp.Credentials = credential;
                     smtp.Host = "smtp.gmail.com";
                     smtp.Port = 587;
