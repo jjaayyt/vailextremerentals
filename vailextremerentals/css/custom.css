@@ -1,1 +1,6 @@
 /* Add here all your css styles (customizations) */
+
+.col-lg-4 i {
+    display: block;
+    text-align: center
+}
