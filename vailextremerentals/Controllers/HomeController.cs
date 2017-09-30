@@ -7,12 +7,15 @@ using System.Web.Routing;
 
 namespace vailextremerentals.Controllers
 {
-    [Route("")]
+    //[Route("")]
     //[RequireHttps]
     public class HomeController : Controller
     {
+        [Route("home")]
+        [Route("home/index")]
         [Route("rentals")]
         [Route("")]
+
         public ActionResult Index()
         {
             return View();
@@ -55,12 +58,6 @@ namespace vailextremerentals.Controllers
         {
             ViewData["Message"] = "Your delivery page.";
 
-            return View();
-        }
-
-        [Route("error")]
-        public ActionResult Error()
-        {
             return View();
         }
 

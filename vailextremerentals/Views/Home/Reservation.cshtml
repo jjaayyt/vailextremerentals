@@ -13,8 +13,8 @@
 <div class="container content">
     <div class="row margin-bottom-0">
         <div class="col-md-12 mb-margin-bottom-0">
-            <div class="headline"><h1>Rental Reservations</h1></div>
-            <p>If you would like to book a reservation within 48 hours, please call us at (970) 470-2166.</p><br />
+            <div class="headline"><h1>Reservations</h1></div>
+            <p>Need to book a last-minute reservation? We can do that, but we need 48 hours advance notice. We may be able to arrange something quickly, so call us immediately at (970) 470-2166.</p><br />
         </div>
     </div>
     <div class="row margin-bottom-30 sky-form">
@@ -23,7 +23,6 @@
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-            <header>RESERVATION</header>
             <fieldset>
                 <div class="row">
                     <section class="col col-4">
@@ -102,116 +101,8 @@
                         </label>
                     </section>
                 </div>
-            </fieldset>
 
 
-
-
-
-
-
-
-
-
-
-
-
-            <header>BILLING</header>
-            <fieldset>
-                <div class="inline-group">
-                    <section class="col col-11">
-
-                        <label class="radio">@Html.RadioButtonFor(m => m.CCType, "VISA", new { @Name = "@(radio-inline)" }) <i class="rounded-x"></i>VISA</label>
-                        <label class="radio">@Html.RadioButtonFor(m => m.CCType, "MASTERCARD", new { @Name = "@(radio-inline)" }) <i class="rounded-x"></i>MASTERCARD</label>
-                        <label class="radio">@Html.RadioButtonFor(m => m.CCType, "AMERICAN EXPRESS", new { @Name = "@(radio-inline)" }) <i class="rounded-x"></i>AMERICAN EXPRESS</label>
-
-
-
-
-                    </section>
-                </div>
-                <div class="row">
-                    <section class="col col-4">
-                        <label class="input">
-                            @Html.TextBoxFor(m => m.CreditCardNumber, new { @class = "form-control", placeholder = "CARD NUMBER", @maxlength = "16", name = "card", id = "card" })
-                            @Html.ValidationMessageFor(m => m.CreditCardNumber)
-                        </label>
-                    </section>
-                    <section class="col col-4">
-                        <label class="input">
-                            @Html.TextBoxFor(m => m.CVV2Number, new { @class = "form-control", placeholder = "CCV2", @maxlength = "4", name = "cvv", id = "cvv" })
-                            @Html.ValidationMessageFor(m => m.CVV2Number)
-                        </label>
-                    </section>
-                </div>
-                <div class="row">
-                    <section class="col col-8">
-                        <label class="input">
-                            @Html.TextBoxFor(m => m.NameOnCreditCard, new { @class = "form-control", placeholder = "NAME ON CARD", name = "name", id = "name" })
-                            @Html.ValidationMessageFor(m => m.NameOnCreditCard)
-                        </label>
-                    </section>
-                </div>
-                <div class="row">
-                    <section class="col col-4">
-                        <label class="select">
-                            @Html.DropDownListFor(m => m.ExpirationMonth, new SelectList(new List<Object>{
-                                new { value = 1 , text = "JAN" },
-                              new { value = 2 , text = "FEB" },
-                              new { value = 3 , text = "MAR" },
-                              new { value = 4 , text = "APR" },
-                              new { value = 5 , text = "MAY" },
-                              new { value = 6 , text = "JUN" },
-                              new { value = 7 , text = "JUL" },
-                              new { value = 8 , text = "AUG" },
-                              new { value = 9 , text = "SEP" },
-                              new { value = 10 , text = "OCT" },
-                              new { value = 11 , text = "NOV" },
-                              new { value = 12 , text = "DEC" },
-                                }, "value", "text"), "MONTH EXPIRES", new { name = "month", @class = "select" })
-                            <i></i>
-                        </label>
-                    </section>
-                    <section class="col col-4">
-                        <label class="input">
-                            @Html.TextBoxFor(m => m.ExpirationYear, new { @class = "form-control", placeholder = "YEAR EXPIRES", name = "year", id = "year" })
-                            @Html.ValidationMessageFor(m => m.ExpirationYear)
-                        </label>
-                    </section>
-                </div>
-            </fieldset>
-            @*<header>RENTAL AGREEMENT &amp; RELEASE OF LIABILITY</header>
-                            <fieldset>
-                                <div class="row">
-                                    <section class="col col-lg-12">
-                                        <label class="textarea">
-                                            <textarea class="form-control" id="ReleaseText" name="ReleaseText" rows="6">
-                RENTAL AGREEMENT. I am renting from Vail Extreme Rentals a Snow Bike (the “Snow Bike”) for the purpose of recreational power snow biking.  I understand there are NO REFUNDS ON A SNOW BIKE RENTAL.  I understand I will be responsible for the proper care of the Snow Bike until it is returned to Vail Extreme Rentals.  I understand that I will be responsible if the Snow Bike is lost, stolen, misused or misplaced, and I agree to replace at full retail value, the Snow Bike rented from Vail Extreme Rentals if it is damaged or not returned to Vail Extreme Rentals when due.  I authorize Vail Extreme Rentals to charge my credit card to pay any and all amounts due hereunder.
-
-                RELEASE OF LIABILITY. I understand that snow biking is a dangerous activity.  I understand that snow biking includes inherent, manmade and other risks of injury or death that reasonable care, caution, instruction and expertise cannot eliminate. I also understand that injuries are common and ordinary occurrences during snow biking activities. I hereby freely, voluntarily and expressly agree to ASSUME and ACCEPT any and ALL RISKS of death or any injury to any part of my body and to any other person or damage to property while using the Snow Bike.
-
-                    I have been advised to and agree to use safety equipment, such as a helmet, goggles, protective padding and such other safety equipment as is prudent under the circumstances. However, I understand that use of such safety equipment does NOT ELIMINATE THE RISK of injury or death.
-
-                    I hereby forever release, indemnify and hold harmless Vail Extreme Rentals from and against any and all cause or causes of action, whether caused by ANY NEGLIGENCE or breach of warranty, whether sounding in contract or tort, in law or in equity, including suits, liabilities, claims, demands, damages, losses, costs, and expenses, of any nature whatsoever, based upon, arising from, or in any way connected with or related to my use of the Snow Bike.  I agree NOT to make a claim against or sue Vail Extreme Rentals for any injuries or damages relating to my use of the Snow Bike and I ACCEPT PERSONAL LIABILITY AND RESPONSIBILITY for any and all such injuries or damages.
-
-                    Vail Extreme Rentals provides NO WARRANTIES, express or implied, and the Snow Bike is accepted “AS IS.”  I have carefully read this agreement and release of liability and fully understand its contents.  I am aware that this is a binding contract.  I agree that if any provision of this agreement and release of liability is determined to be illegal or unenforceable for any reason, the illegal or unenforceable provision shall be severed and the remainder of this contract shall be given full force and effect.
-
-                    If I am signing on behalf of a minor, I represent that I am a parent, guardian, legal representative or a person who has legal custody of said minor, and I understand I am RELEASING AND WAIVING both my claims for negligence and the minor’s prospective claims for negligence and breach of warranty.
-                                            </textarea>
-
-                                        </label><br />
-
-                                        <div class="inline-group">
-                                            <label class="checkbox">
-                                                @Html.CheckBoxFor(m => m.Release, new {type = "checkbox", name = "checkbox-inline", id = "checkbox-inline" })
-                                                <i></i><b>I UNDERSTAND THAT ALL CUSTOMERS WILL BE REQUIRED TO SIGN VAIL EXTREME RENTALS' SNOW BIKE RENTAL AGREEMENT &AMP; RELEASE OF LIABILITY.</b>
-                                            </label>
-                                        </div>
-                                    </section>
-                                </div>
-                            </fieldset>*@
-            <header></header>
-            <fieldset>
                 <div class="row">
                     <section class="col col-4">
                         <button type="submit" class="btn-u btn-brd-hover rounded btn-u-lg">
@@ -219,9 +110,28 @@
                         </button>
                     </section>
                 </div>
+
             </fieldset>
+
 
         }
     </div>
 </div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <!-- End Checkout-Form -->
