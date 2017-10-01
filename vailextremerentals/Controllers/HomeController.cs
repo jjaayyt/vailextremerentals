@@ -8,7 +8,7 @@ using System.Web.Routing;
 namespace vailextremerentals.Controllers
 {
     //[Route("")]
-    //[RequireHttps]
+    [RequireHttps]
     public class HomeController : Controller
     {
         [Route("home")]
