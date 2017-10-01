@@ -14,7 +14,7 @@
     <div class="row margin-bottom-0">
         <div class="col-md-12 mb-margin-bottom-0">
             <div class="headline"><h1>Reservations</h1></div>
-            <p>Need to book a last-minute reservation? We can do that, but we need 48 hours advance notice. We may be able to arrange something quickly, so call us immediately at (970) 470-2166.</p><br />
+            <p>Need to book a last-minute reservation? We can do that, but we need 48 hours advance notice. We may be able to arrange something quicker than that on weekdays, so please call us at (970) 470-2166.</p><br />
         </div>
     </div>
     <div class="row margin-bottom-30 sky-form">
@@ -49,43 +49,51 @@
                     </section>
                 </div>
                 <div class="row">
-                    <section class="col col-4">
+                    <section class="col col-6">
                         <label class="select">
                             @Html.DropDownListFor(m => m.SelectedRental, new SelectList(new List<Object>{
-                            new { value = 1 , text = "TIMBERSLED KAWASAKI KX450F SHORT" },
-                            new { value = 2 , text = "TIMBERSLED YAMAHA WR450F LONG"},
-                            new { value = 3 , text = "TIMBERSLED YAMAHA WR450F SHORT TRACK" },
-                            new { value = 4 , text = "TIMBERSLED KTM 300XC SX 120 SNOCROSS" },
-                            new { value = 5 , text = "SNOWMOBILE SKI-DOO 850 154" },
-                            new { value = 6 , text = "DIRTBIKE KAWASAKI KX450F" },
-                            new { value = 7 , text = "DIRTBIKE YAMAHA WR450F" },
-                            new { value = 8 , text = "DIRTBIKE KTM 300 XC" },
-                            new { value = 9 , text = "DIRTBIKE KAWASAKI KX250F" },
-                            new { value = 10 , text = "DIRTBIKE HONDA XR100" },
-                            new { value = 11 , text = "DIRTBIKE HONDA CRF150F" },
-                            new { value = 12 , text = "DIRTBIKE HONDA XR50" },
-                            new { value = 13 , text = "RZR SIDE-BY-SIDE POLARIS 4-SEATER" },
-                            new { value = 14 , text = "RZR SIDE-BY-SIDE POLARIS 2-SEATER" },
-                            new { value = 15 , text = "MOTORCYCLE HARLEY STREET GLIDE" },
-                            new { value = 16 , text = "MOTORCYCLE HONDA RUCKUS 50CC" },
-                            new { value = 17 , text = "JEEP 5-SEATER" },
-                            new { value = 18 , text = "ROCK CRAWLER" },
-                            new { value = 19 , text = "4x4 CHEVY CREW CAB DIESEL" },
-                            new { value = 20 , text = "GPS TRACKER DTS TRANSECEIVER" },
-                            new { value = 21 , text = "GPS TRACKER SPOT GEN3" },
-                            new { value = 22 , text = "VIDEO CAMERA GOPRO HERO" },
+
+                           new { value = 1 , text = "TIMBERSLED 2018 YAMAHA YZ450F YETI 129 SNOWMX FREERIDE SS" },
+        new { value = 2 , text = "TIMBERSLED 2018 YAMAHA YZ450F TIMBERSLED 120 SHORT TRACK" },
+        new { value = 3, text = "TIMBERSLED YAMAHA WR480F BIG BORE TIMBERSLED 137 LONG TRACK" },
+        new { value = 4, text = "TIMBERSLED YAMAHA WR450F TIMBERSLED 137 LONG TRACK" },
+        new { value = 5, text = "TIMBERSLED YAMAHA WR450F TIMBERSLED 120 SHORT TRACK" },
+        new { value = 6, text = "TIMBERSLED KTM 300XC TIMBERSLED SNOW CROSS SX 120" },
+        new { value = 7, text = "TIMBERSLED KAWASKI KX110L KIDS SNOW RIPPER" },
+        new { value = 8, text = "SNOWMOBILE SKI-DOO SUMMIT 850 E-TEC, 154 TRACK" },
+        new { value = 9, text = "DIRTBIKE 2018 YAMAHA YZ450F" },
+        new { value = 10, text = "DIRTBIKE KAWASAKI KX450F" },
+        new { value = 11, text = "DIRTBIKE YAMAHA WR450F" },
+        new { value = 12, text = "DIRTBIKE KTM 300 XC" },
+        new { value = 13, text = "DIRTBIKE KAWASAKI KX250F" },
+        new { value = 14, text = "DIRTBIKE HONDA XR100" },
+        new { value = 15, text = "DIRTBIKE KAWASAKI KLX 110L" },
+        new { value = 16, text = "DIRTBIKE HONDA CRF150F" },
+        new { value = 17, text = "DIRTBIKE HONDA XR50" },
+        new { value = 18, text = "SIDE-BY-SIDE YAMAHA VIKING 6-PASSENGER" },
+        new { value = 19, text = "SIDE-BY-SIDE POLARIS RZR XP 4 1000 EPS 4-PASSENGER" },
+        new { value = 20, text = "SIDE-BY-SIDE POLARIS RZR 800 XC 2-PASSENGER" },
+        new { value = 21, text = "MOTORCYCLE HARLEY-DAVIDSON STREET GLIDE" },
+        new { value = 22, text = "MOTORCYCLE HONDA RUCKUS 50CC" },
+        new { value = 23, text = "E-BIKE QUIETKAT FATKAT MOUNTAIN BIKE" },
+        new { value = 24, text = "JEEP 5-PASSENGER" },
+        new { value = 25, text = "ROCK CRAWLER (THE BEAST)" },
+        new { value = 26, text = "TRUCK 4X4 CHEVY CREW CAB DIESEL" },
+        new { value = 27, text = "TRANSCEIVER TRACKER DTS TRANSCEIVER" },
+        new { value = 28, text = "TRANSCEIVER SPOT GEN3 TRANSCEIVER" },
+        new { value = 29, text = "OUTDOOR CAMERA GOPRO HERO4" },
                             }, "value", "text"), "RESERVE THIS MODEL", new { name = "interested", @class = "interested" })
                             <i></i>
                         </label>
                     </section>
-                    <section class="col col-4">
+                    <section class="col col-3">
                         <label class="input">
                             <i class="icon-append fa fa-calendar"></i>
                             @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control", placeholder = "PICKUP DATE", name = "start", id = "start" })
                             @Html.ValidationMessageFor(m => m.StartDate)
                         </label>
                     </section>
-                    <section class="col col-4">
+                    <section class="col col-3">
                         <label class="input">
                             <i class="icon-append fa fa-calendar"></i>
                             @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control", placeholder = "RETURN DATE", name = "finish", id = "finish" })
