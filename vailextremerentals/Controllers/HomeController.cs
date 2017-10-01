@@ -8,19 +8,20 @@ using System.Web.Routing;
 namespace vailextremerentals.Controllers
 {
     //[Route("")]
-    [RequireHttps]
+    //[RequireHttps]
     public class HomeController : Controller
     {
         [Route("home")]
         [Route("home/index")]
         [Route("rentals")]
         [Route("")]
-
+        [RequireHttps]
         public ActionResult Index()
         {
             return View();
         }
 
+        [RequireHttps]
         [Route("contact")]
         public ActionResult Contact()
         {
@@ -29,6 +30,7 @@ namespace vailextremerentals.Controllers
             return View();
         }
 
+        [RequireHttps]
         [Route("legal")]
         public ActionResult Legal()
         {
@@ -37,6 +39,7 @@ namespace vailextremerentals.Controllers
             return View();
         }
 
+        [RequireHttps]
         [Route("reservations")]
         public ActionResult Reservation()
         {
@@ -45,6 +48,7 @@ namespace vailextremerentals.Controllers
             return View();
         }
 
+        [RequireHttps]
         [Route("delivery")]
         public ActionResult Delivery()
         {
@@ -53,6 +57,7 @@ namespace vailextremerentals.Controllers
             return View();
         }
 
+        [RequireHttps]
         [Route("media")]
         public ActionResult Media()
         {
@@ -61,6 +66,7 @@ namespace vailextremerentals.Controllers
             return View();
         }
 
+        [RequireHttps]
         [Route("contact")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -96,6 +102,7 @@ namespace vailextremerentals.Controllers
             return View(model);
         }
 
+        [RequireHttps]
         [Route("reservations")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -151,12 +158,14 @@ namespace vailextremerentals.Controllers
             return View(model);
         }
 
+        [RequireHttps]
         [Route("message_received")]
         public ActionResult Sent_Contact()
         {
             return View();
         }
 
+        [RequireHttps]
         [Route("reservation_received")]
         public ActionResult Sent_Reservation()
         {
