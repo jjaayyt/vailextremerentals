@@ -7,21 +7,17 @@ using System.Web.Routing;
 
 namespace vailextremerentals.Controllers
 {
-    //[Route("")]
-    //[RequireHttps]
     public class HomeController : Controller
     {
         [Route("home")]
         [Route("home/index")]
         [Route("rentals")]
         [Route("")]
-        [RequireHttps]
         public ActionResult Index()
         {
             return View();
         }
 
-        [RequireHttps]
         [Route("contact")]
         public ActionResult Contact()
         {
@@ -30,7 +26,6 @@ namespace vailextremerentals.Controllers
             return View();
         }
 
-        [RequireHttps]
         [Route("legal")]
         public ActionResult Legal()
         {
@@ -39,7 +34,6 @@ namespace vailextremerentals.Controllers
             return View();
         }
 
-        [RequireHttps]
         [Route("reservations")]
         public ActionResult Reservation()
         {
@@ -48,7 +42,6 @@ namespace vailextremerentals.Controllers
             return View();
         }
 
-        [RequireHttps]
         [Route("delivery")]
         public ActionResult Delivery()
         {
@@ -57,7 +50,6 @@ namespace vailextremerentals.Controllers
             return View();
         }
 
-        [RequireHttps]
         [Route("media")]
         public ActionResult Media()
         {
@@ -66,7 +58,6 @@ namespace vailextremerentals.Controllers
             return View();
         }
 
-        [RequireHttps]
         [Route("contact")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -102,7 +93,6 @@ namespace vailextremerentals.Controllers
             return View(model);
         }
 
-        [RequireHttps]
         [Route("reservations")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -119,16 +109,6 @@ namespace vailextremerentals.Controllers
                 var EndDate = model.EndDate.ToUpper().Trim();
 
                 var SpecialRequest = model.SpecialRequest.ToUpper().Trim();
-
-                //var CreditCardType = model.CCType.ToUpper().Trim();
-
-                //var CreditCardNumber = model.CreditCardNumber.ToUpper().Trim();
-                //var CVV2Number = model.CVV2Number.ToUpper().Trim();
-
-                //var NameOnCreditCard = model.NameOnCreditCard.ToUpper().Trim();
-
-                //var ExpirationMonth = model.ExpirationMonth.ToUpper().Trim();
-                //var ExpirationYear = model.ExpirationYear.ToUpper().Trim();
 
                 System.Random rndmnmbr = new System.Random();
                 int result = rndmnmbr.Next(11111, 99999);
@@ -158,14 +138,12 @@ namespace vailextremerentals.Controllers
             return View(model);
         }
 
-        [RequireHttps]
         [Route("message_received")]
         public ActionResult Sent_Contact()
         {
             return View();
         }
 
-        [RequireHttps]
         [Route("reservation_received")]
         public ActionResult Sent_Reservation()
         {
